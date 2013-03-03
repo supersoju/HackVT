@@ -44,6 +44,7 @@ $app = new \Slim\Slim();
  p
  */
 
+
 // GET route
 $app->get('/', function () use ($app) {
 
@@ -59,7 +60,7 @@ $app->get('/', function () use ($app) {
 
 $app->get('/json', function () use ($app) {
     header('Content-type: application/json');
-    $db = new ezSQL_mysql('hackvt','hackvt2012','hackvt','localhost');
+    $db = new ezSQL_mysql('USER','PASSWORD','DBNAME','HOST');
     if(isset($_GET['city'])){
         $city = urlencode($_GET['city']);
         $geocodejson = file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?address=' . $city . '&sensor=false');
